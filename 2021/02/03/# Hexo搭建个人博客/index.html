@@ -17,7 +17,7 @@
   <meta name="description" content="">
   <meta name="author" content="yiyi">
   <meta name="keywords" content="">
-  <title>CentOS 7.6 快速部署开发环境 - 正一同学</title>
+  <title>基于CentOS+Nginx+Hexo搭建个人博客 - 正一同学</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
 
@@ -162,7 +162,7 @@
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="CentOS 7.6 快速部署开发环境">
+            <span class="h2" id="subtitle" title="基于CentOS+Nginx+Hexo搭建个人博客">
               
             </span>
 
@@ -172,8 +172,8 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2021-01-31 11:41" pubdate>
-        2021年1月31日 中午
+      <time datetime="2021-02-03 18:08" pubdate>
+        2021年2月3日 晚上
       </time>
     </span>
   
@@ -184,7 +184,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      301 字
+      357 字
     </span>
   
 
@@ -194,7 +194,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      4
+      5
        分钟
     </span>
   
@@ -224,33 +224,33 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">CentOS 7.6 快速部署开发环境</h1>
+            <h1 style="display: none">基于CentOS+Nginx+Hexo搭建个人博客</h1>
             
             <div class="markdown-body">
-              <h2 id="CentOS-7-6-快速部署开发环境（Apache-MySQL-PHP）"><a href="#CentOS-7-6-快速部署开发环境（Apache-MySQL-PHP）" class="headerlink" title="CentOS 7.6 快速部署开发环境（Apache+MySQL+PHP）"></a>CentOS 7.6 快速部署开发环境（Apache+MySQL+PHP）</h2><h3 id="一、安装Apache服务"><a href="#一、安装Apache服务" class="headerlink" title="一、安装Apache服务"></a>一、安装Apache服务</h3><p>1.安装Apache服务及其扩展包</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">yum -y install httpd httpd-manual mod_ssl mod_perl mod_auth_mysql<br></code></pre></td></tr></table></figure>
-<p>2.启动Apache服务</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">systemctl start httpd.service<br></code></pre></td></tr></table></figure>
-<h3 id="二、安装MySQL数据库"><a href="#二、安装MySQL数据库" class="headerlink" title="二、安装MySQL数据库"></a>二、安装MySQL数据库</h3><p>1.下载并安装MySQL</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs shell">wget http://dev.mysql.com/get/mysql57-community-release-el7-10.noarch.rpm &amp;&amp; <br>yum -y install mysql57-community-release-el7-10.noarch.rpm &amp;&amp; <br>yum -y install mysql-community-server<br></code></pre></td></tr></table></figure>
-<p>2.启动MySQL数据库</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">systemctl start mysqld.service<br></code></pre></td></tr></table></figure>
-<p>3.查看MySQL初始密码</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">grep &quot;password&quot; /var/log/mysqld.log<br></code></pre></td></tr></table></figure>
-<p>4.登录数据库</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs mysql">mysql -uroot -p 上一步的密码<br></code></pre></td></tr></table></figure>
-<p>5.修改MySQL默认密码</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs mysql">set global validate_password_policy&#x3D;0;  &#x2F;&#x2F;修改密码安全策略为低（只校验密码长度，至少8位）。<br>ALTER USER &#39;root&#39;@&#39;localhost&#39; IDENTIFIED BY &#39;12345678&#39;;<br></code></pre></td></tr></table></figure>
-<p>6.授予root用户远程管理权限</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs mysql">GRANT ALL PRIVILEGES ON *.* TO &#39;root&#39;@&#39;%&#39; IDENTIFIED BY &#39;12345678&#39;;<br></code></pre></td></tr></table></figure>
-<p>7.输入exit退出数据库</p>
-<h3 id="三、安装PHP"><a href="#三、安装PHP" class="headerlink" title="三、安装PHP"></a>三、安装PHP</h3><p>1.安装PHP环境</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">yum -y install php php-mysql gd php-gd gd-devel php-xml php-common php-mbstring php-ldap php-pear php-xmlrpc php-imap<br></code></pre></td></tr></table></figure>
-<p>2.创建PHP测试页面</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">echo &quot;&lt;?php phpinfo(); ?&gt;&quot; &gt; /var/www/html/phpinfo.php<br></code></pre></td></tr></table></figure>
-<p>3.重启Apache服务</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">systemctl restart httpd<br></code></pre></td></tr></table></figure>
-<p>4.打开浏览器，查看phpinfo界面显示成功</p>
+              <h2 id="基于CentOS-Nginx-Hexo搭建个人博客"><a href="#基于CentOS-Nginx-Hexo搭建个人博客" class="headerlink" title="基于CentOS+Nginx+Hexo搭建个人博客"></a>基于CentOS+Nginx+Hexo搭建个人博客</h2><h3 id="一、安装git"><a href="#一、安装git" class="headerlink" title="一、安装git"></a>一、安装git</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs shell">yum -y install git<br>git --version		<br></code></pre></td></tr></table></figure>
+<h3 id="二、安装npm"><a href="#二、安装npm" class="headerlink" title="二、安装npm"></a>二、安装npm</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs shell">cd /usr/local<br>wget https://npm.taobao.org/mirrors/node/v10.14.1/node-v10.14.1-linux-x64.tar.gz  //下载<br>tar -xvf node-v10.14.1-linux-x64.tar.gz   //解压<br>mv node-v10.14.1-linux-x64 node           //转移<br>vim /etc/profile                          //配置环境变量<br></code></pre></td></tr></table></figure>
+<p>在文件末尾添加</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs shell">export NODE_HOME=/usr/local/node<br>export PATH=$NODE_HOME/bin:$PATH<br></code></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs shell">source /etc/profile<br>node -v<br>npm -v<br></code></pre></td></tr></table></figure>
+<h3 id="三、安装Hexo"><a href="#三、安装Hexo" class="headerlink" title="三、安装Hexo"></a>三、安装Hexo</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs shell">npm install -g hexo-cli<br>cd /root<br>mkdir my_blog<br>hexo init my_blog<br>cd my_blog<br>npm install<br>hexo g<br>hexo server<br></code></pre></td></tr></table></figure>
+<h3 id="四、安装Nginx"><a href="#四、安装Nginx" class="headerlink" title="四、安装Nginx"></a>四、安装Nginx</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs shell">yum install nginx<br>systemctl start nginx<br>systemctl enable nginx<br></code></pre></td></tr></table></figure>
+<p>配置Nginx配置文件</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">vim /etc/nginx/nginx.conf<br></code></pre></td></tr></table></figure>
+<p>修改</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs shell">user root;<br>...<br>server&#123;<br>	server_name 公网IP;<br>	root /root/my_blog/public;<br>	&#125;<br>location / &#123;<br>	index index.html;<br>	&#125;<br></code></pre></td></tr></table></figure>
+<p>重启nginx</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">systemctl nginx restart<br></code></pre></td></tr></table></figure>
+<p>至此在浏览器输入公网IP就可以看到生成的博客了</p>
+<h3 id="五、部署到GitHub"><a href="#五、部署到GitHub" class="headerlink" title="五、部署到GitHub"></a>五、部署到GitHub</h3><p>进入GitHub，新建一个Repository<br>仓库的名字，必须是自己的Github账户的用户名.github.io</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">vim /root/my_blog/_config.yml<br></code></pre></td></tr></table></figure>
+<p>添加：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs shell">deploy:<br>	type: git<br>	repo: git@github.com:xxx/xxx.github.io.git<br>	branch: master<br></code></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs shell">npm install hexo-deployer-git --save  //安装git插件<br>cd ~/.ssh  //生成ssh密钥<br>ssh-keygen -t rsa -C &quot;注册GitHub账号的邮箱地址&quot;<br></code></pre></td></tr></table></figure>
+<p>三次回车，复制id_rsa.pub文件内容，进入GitHub主页，个人设置-&gt;SSH and GPG keys-&gt;New SSH key,将内容复制到key里</p>
+<p><strong>git全局配置</strong></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs shell">git config --global user.name  &quot;github用户名&quot;<br>git config --global user.email &quot;github注册邮箱&quot;<br></code></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs shell">cd /root/my_blog/<br>hexo g -d<br></code></pre></td></tr></table></figure>
+<p>初步配置完成<br>主题下载可去 <a target="_blank" rel="noopener" href="https://hexo.io/themes">https://hexo.io/themes</a></p>
 
             </div>
             <hr>
@@ -267,15 +267,21 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2021/01/31/Hexo%E9%83%A8%E7%BD%B2/">
+                      <a href="/2021/02/03/#%20CentOS%E9%83%A8%E7%BD%B2%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">基于CentOS+Nginx+Hexo搭建个人博客</span>
+                        <span class="hidden-mobile">CentOS 7.6 快速部署开发环境</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
                   </article>
                   <article class="post-next col-6">
                     
+                    
+                      <a href="/2021/02/03/#%20Web%E5%AE%89%E5%85%A8%E9%9D%A2%E8%AF%95%E9%A2%98/">
+                        <span class="hidden-mobile">Web安全面试题</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
                     
                   </article>
                 </div>
