@@ -17,7 +17,7 @@
   <meta name="description" content="">
   <meta name="author" content="yiyi">
   <meta name="keywords" content="">
-  <title>Google Hacking - 正一同学</title>
+  <title>基于CentOS+Nginx+Hexo搭建个人博客 - 正一同学</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
 
@@ -162,7 +162,7 @@
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="Google Hacking">
+            <span class="h2" id="subtitle" title="基于CentOS+Nginx+Hexo搭建个人博客">
               
             </span>
 
@@ -172,7 +172,7 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2021-02-03 18:08" pubdate>
+      <time datetime="2021-02-03 18:17" pubdate>
         2021年2月3日 晚上
       </time>
     </span>
@@ -184,7 +184,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      510 字
+      357 字
     </span>
   
 
@@ -194,7 +194,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      6
+      5
        分钟
     </span>
   
@@ -224,17 +224,33 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">Google Hacking</h1>
+            <h1 style="display: none">基于CentOS+Nginx+Hexo搭建个人博客</h1>
             
             <div class="markdown-body">
-              <h1 id="Google-Hacking"><a href="#Google-Hacking" class="headerlink" title="Google Hacking"></a>Google Hacking</h1><ol>
-<li><strong>site</strong><br> 功能：搜索指定域名的网页内容，可以用来搜索子域名，跟此域名有关的内容<br> 示例： <figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs less"><span class="hljs-attribute">site</span>:zhihu.com <span class="hljs-comment">//搜索跟zhihu.com相关的网页</span><br><span class="hljs-string">&quot;sql注入&quot;</span> <span class="hljs-attribute">site</span>:zhihu.com <span class="hljs-comment">//搜索zhihu.com跟sql注入相关的网页</span><br></code></pre></td></tr></table></figure></li>
-<li><strong>filetype</strong><br> 功能：指定搜索文件类型<br> 示例： <figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs groovy"><span class="hljs-string">&quot;web安全&quot;</span> <span class="hljs-attr">filetype:</span>pdf <span class="hljs-comment">//搜索跟web安全相关的pdf文件</span><br><span class="hljs-attr">site:</span>csdn.com <span class="hljs-attr">filetype:</span>pdf <span class="hljs-comment">//搜索csdn网站中的pdf文件</span><br></code></pre></td></tr></table></figure></li>
-<li><strong>inurl</strong><br> 功能：搜索url网址存在特定关键字的网页，可以用来搜寻有注入点的网站<br> 示例： <figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs awk">inurl:php?id= <span class="hljs-regexp">//</span>搜索网址中有<span class="hljs-string">&quot;php?id&quot;</span>的网页<br>inurl: <span class="hljs-regexp">/admin/</span> login.php <span class="hljs-regexp">//</span>搜索网址中有<span class="hljs-string">&quot;/admin/login.php&quot;</span>的网页<br></code></pre></td></tr></table></figure></li>
-<li><strong>intitle</strong><br> 功能：搜索标题存在特定关键字的网页<br> 示例： <figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs less"><span class="hljs-attribute">intitle</span>:后台登录 <span class="hljs-comment">//搜索网页标题是“后台登录”的相关网页</span><br><span class="hljs-attribute">intitle</span>:后台管理 <span class="hljs-attribute">filetype</span>:php <span class="hljs-comment">//搜索网页标题是后台管理”的php页面</span><br><span class="hljs-attribute">intitle</span>:index of <span class="hljs-string">&quot;keyword&quot;</span> <span class="hljs-comment">//搜索此关键字相关的索引目录信息</span><br><span class="hljs-attribute">intitle</span>:index of <span class="hljs-string">&quot;parent directory&quot;</span> <span class="hljs-comment">//搜索根目录相关的索引目录信息</span><br><span class="hljs-attribute">intitle</span>:index of <span class="hljs-string">&quot;password&quot;</span> <span class="hljs-comment">//搜索密码相关的索引目录信息</span><br></code></pre></td></tr></table></figure></li>
-<li><strong>intext</strong><br> 功能：搜索正文存在特定关键字的网页<br> 示例： <figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs less">	<span class="hljs-attribute">intext</span>:外部实体注入 <span class="hljs-comment">//搜索外部实体注入相关的页面</span><br>	<span class="hljs-attribute">intext</span>:Powered by dedecms <span class="hljs-comment">//搜索wordpress制作的博客网址</span><br>	<span class="hljs-attribute">intext</span>:powered by xxx <span class="hljs-attribute">inurl</span>:login <span class="hljs-comment">//搜索此类网址的后台登录页面</span><br>组合：搜索用Discuz搭建的论坛：<br>	<span class="hljs-attribute">inurl</span>:php ?id <span class="hljs-attribute">intitle</span>:电影 <span class="hljs-attribute">intext</span>:powered by discuz<br>	<span class="hljs-attribute">intext</span>:&quot;powered by discuz! <span class="hljs-number">7.2</span>” <span class="hljs-attribute">inurl</span>:faq.php <span class="hljs-attribute">intitle</span>:论坛<br>组合：搜索使用Struts的相关网站：<br>	<span class="hljs-attribute">intitle</span>: <span class="hljs-string">&quot; Struts Problem Report&quot;</span><br>	<span class="hljs-attribute">intitle</span>: <span class="hljs-string">&quot;Struts Problem Report&quot;</span> <span class="hljs-attribute">intext</span>: <span class="hljs-string">&quot;development mode is enabled.&quot;</span><br></code></pre></td></tr></table></figure></li>
-<li><strong>符号</strong> <figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs awk">-keyword <span class="hljs-regexp">//</span>强制结果不要出现此关键字,例如∶电影-黑客<br>\*keyword <span class="hljs-regexp">//</span>模糊搜索，强制结果包含此关键字,例如︰电影一个叫\*决定\*<br><span class="hljs-string">&quot;keyword&quot;</span>  <span class="hljs-regexp">//</span>强制搜索结果出现此关键字,例如∶书籍“web安全<span class="hljs-string">&quot;</span><br></code></pre></td></tr></table></figure></li>
-</ol>
+              <h2 id="基于CentOS-Nginx-Hexo搭建个人博客"><a href="#基于CentOS-Nginx-Hexo搭建个人博客" class="headerlink" title="基于CentOS+Nginx+Hexo搭建个人博客"></a>基于CentOS+Nginx+Hexo搭建个人博客</h2><h3 id="一、安装git"><a href="#一、安装git" class="headerlink" title="一、安装git"></a>一、安装git</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs shell">yum -y install git<br>git --version		<br></code></pre></td></tr></table></figure>
+<h3 id="二、安装npm"><a href="#二、安装npm" class="headerlink" title="二、安装npm"></a>二、安装npm</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs shell">cd /usr/local<br>wget https://npm.taobao.org/mirrors/node/v10.14.1/node-v10.14.1-linux-x64.tar.gz  //下载<br>tar -xvf node-v10.14.1-linux-x64.tar.gz   //解压<br>mv node-v10.14.1-linux-x64 node           //转移<br>vim /etc/profile                          //配置环境变量<br></code></pre></td></tr></table></figure>
+<p>在文件末尾添加</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs shell">export NODE_HOME=/usr/local/node<br>export PATH=$NODE_HOME/bin:$PATH<br></code></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs shell">source /etc/profile<br>node -v<br>npm -v<br></code></pre></td></tr></table></figure>
+<h3 id="三、安装Hexo"><a href="#三、安装Hexo" class="headerlink" title="三、安装Hexo"></a>三、安装Hexo</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs shell">npm install -g hexo-cli<br>cd /root<br>mkdir my_blog<br>hexo init my_blog<br>cd my_blog<br>npm install<br>hexo g<br>hexo server<br></code></pre></td></tr></table></figure>
+<h3 id="四、安装Nginx"><a href="#四、安装Nginx" class="headerlink" title="四、安装Nginx"></a>四、安装Nginx</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs shell">yum install nginx<br>systemctl start nginx<br>systemctl enable nginx<br></code></pre></td></tr></table></figure>
+<p>配置Nginx配置文件</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">vim /etc/nginx/nginx.conf<br></code></pre></td></tr></table></figure>
+<p>修改</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs shell">user root;<br>...<br>server&#123;<br>	server_name 公网IP;<br>	root /root/my_blog/public;<br>	&#125;<br>location / &#123;<br>	index index.html;<br>	&#125;<br></code></pre></td></tr></table></figure>
+<p>重启nginx</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">systemctl nginx restart<br></code></pre></td></tr></table></figure>
+<p>至此在浏览器输入公网IP就可以看到生成的博客了</p>
+<h3 id="五、部署到GitHub"><a href="#五、部署到GitHub" class="headerlink" title="五、部署到GitHub"></a>五、部署到GitHub</h3><p>进入GitHub，新建一个Repository<br>仓库的名字，必须是自己的Github账户的用户名.github.io</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">vim /root/my_blog/_config.yml<br></code></pre></td></tr></table></figure>
+<p>添加：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs shell">deploy:<br>	type: git<br>	repo: git@github.com:xxx/xxx.github.io.git<br>	branch: master<br></code></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs shell">npm install hexo-deployer-git --save  //安装git插件<br>cd ~/.ssh  //生成ssh密钥<br>ssh-keygen -t rsa -C &quot;注册GitHub账号的邮箱地址&quot;<br></code></pre></td></tr></table></figure>
+<p>三次回车，复制id_rsa.pub文件内容，进入GitHub主页，个人设置-&gt;SSH and GPG keys-&gt;New SSH key,将内容复制到key里</p>
+<p><strong>git全局配置</strong></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs shell">git config --global user.name  &quot;github用户名&quot;<br>git config --global user.email &quot;github注册邮箱&quot;<br></code></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs shell">cd /root/my_blog/<br>hexo g -d<br></code></pre></td></tr></table></figure>
+<p>初步配置完成<br>主题下载可去 <a target="_blank" rel="noopener" href="https://hexo.io/themes">https://hexo.io/themes</a></p>
 
             </div>
             <hr>
@@ -251,9 +267,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2021/02/03/#%20Web%E5%AE%89%E5%85%A8%E9%9D%A2%E8%AF%95%E9%A2%98/">
+                      <a href="/2021/02/03/CentOS%E9%83%A8%E7%BD%B2%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">Web安全面试题</span>
+                        <span class="hidden-mobile">CentOS 7.6 快速部署开发环境</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -261,8 +277,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2021/02/03/#%20%E4%BF%A1%E6%81%AF%E6%90%9C%E9%9B%86%E2%80%94%E2%80%94%E6%B8%97%E9%80%8F%E7%9A%84%E6%9C%AC%E8%B4%A8/">
-                        <span class="hidden-mobile">信息搜集</span>
+                      <a href="/2021/02/03/Web%E5%AE%89%E5%85%A8%E9%9D%A2%E8%AF%95%E9%A2%98/">
+                        <span class="hidden-mobile">Web安全面试题</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>

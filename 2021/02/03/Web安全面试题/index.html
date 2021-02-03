@@ -17,7 +17,7 @@
   <meta name="description" content="">
   <meta name="author" content="yiyi">
   <meta name="keywords" content="">
-  <title>信息搜集 - 正一同学</title>
+  <title>Web安全面试题 - 正一同学</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
 
@@ -162,7 +162,7 @@
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="信息搜集">
+            <span class="h2" id="subtitle" title="Web安全面试题">
               
             </span>
 
@@ -172,7 +172,7 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2021-02-03 18:08" pubdate>
+      <time datetime="2021-02-03 18:17" pubdate>
         2021年2月3日 晚上
       </time>
     </span>
@@ -184,7 +184,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      305 字
+      790 字
     </span>
   
 
@@ -194,7 +194,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      4
+      8
        分钟
     </span>
   
@@ -224,35 +224,103 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">信息搜集</h1>
+            <h1 style="display: none">Web安全面试题</h1>
             
             <div class="markdown-body">
-              <h1 id="信息搜集——渗透的本质"><a href="#信息搜集——渗透的本质" class="headerlink" title="信息搜集——渗透的本质"></a>信息搜集——渗透的本质</h1><ol>
-<li><strong>域名-&gt;IP</strong><br> CDN：内容分发网络<pre><code> 通过邮件（看邮箱头源ip）找真是ip
- 通过查询域名历史ip，http://toolbar.netcraft.com
- 超级ping：http://ping.aizhan.com    http://ping.chinaz.com\
- 查子域名：因为有的子域名没有使用CDN
-</code></pre>
- DNS：<a target="_blank" rel="noopener" href="http://site.ip138.com/">http://site.ip138.com</a> </li>
-<li><strong>域名-&gt;whois</strong><br> 邮箱、注册人、公司、电话<br> 备案：<a target="_blank" rel="noopener" href="https://www.tianyancha.com/">https://www.tianyancha.com</a></li>
-<li><strong>cms</strong><br> 常见cms：WordPress、Dedecms、Discuz、ThinkPHP<br> 在线工具：<pre><code> BugScaner:https://whatweb.bugscaner.com/look/
- 云悉指纹：http://www.yunsee.cn/finger.html
- WhatWeb:https://whatweb.net
-</code></pre>
- 火狐插件：<pre><code> Wapplayzer
-</code></pre>
- 服务器类型：<pre><code> TTL值：Windows的TTL值一般是128，Linux是64
-</code></pre>
- 网站容器（中间件）<br> 脚本类型<br> 数据库类型（报错、端口）<pre><code> 常见搭配：
-     ASP和.NET:Microsoft SQL Server
-     PHP:MySQL、Post
-     Java:Oracal、MySQL
-</code></pre>
+              <h1 id="Web安全面试题"><a href="#Web安全面试题" class="headerlink" title="Web安全面试题"></a>Web安全面试题</h1><h2 id="XSS"><a href="#XSS" class="headerlink" title="XSS"></a>XSS</h2><p><strong>本质</strong><br>攻击者向web页面中插入恶意JavaScript语句。</p>
+<p><strong>分类</strong></p>
+<ul>
+<li>反射性xss</li>
+<li>DOM型xss</li>
+<li>存储型xss</li>
+</ul>
+<p><strong>原理</strong></p>
+<ul>
+<li>反射性xss原理<ol>
+<li>攻击者构造包含恶意JS语句的URL</li>
+<li>受害者访问URL</li>
+<li>网站从URL中获取数据作为响应页面的数据</li>
+<li>受害者浏览器解析执行恶意代码</li>
+</ol>
 </li>
-<li><strong>目录扫描（御剑、爬虫_rad_长亭爬虫、dirsearch）</strong></li>
-<li><strong>子域名</strong><br> SubDomainBrute：<a target="_blank" rel="noopener" href="https://github.com/lijiejie/subDomainsBrute">https://github.com/lijiejie/subDomainsBrute</a><br> Sublist3r：<a target="_blank" rel="noopener" href="https://github.com/aboul3la/Sublist3r">https://github.com/aboul3la/Sublist3r</a><br> Layer（5.0增强版）：<a target="_blank" rel="noopener" href="https://pan.baidu.com/s/1Jja4QK5BsAXJ0i0Ax8Ve2Q">https://pan.baidu.com/s/1Jja4QK5BsAXJ0i0Ax8Ve2Q</a>  密码:aup5<br> <a target="_blank" rel="noopener" href="https://d.chinacycc.com(大佬推荐的说好用的很,但是收费.)/">https://d.chinacycc.com（大佬推荐的说好用的很，但是收费。）</a><br> 在线工具：<a target="_blank" rel="noopener" href="http://z.zcjun.com/">http://z.zcjun.com/</a></li>
-<li><strong>端口扫描</strong></li>
-<li><strong>waf识别</strong><br> 在kail中最常用的WAF扫描工具是wafw00f<br> wafw00f -l<br> #查看该工具能检测那些WAF<br> wafw00f <a target="_blank" rel="noopener" href="http://www.baidu.com/">http://www.baidu.com</a><br>github开源工具利用：<br> <a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/53112370">https://zhuanlan.zhihu.com/p/53112370</a></li>
+<li>DOM型xss原理<ol>
+<li>攻击不经过服务器</li>
+<li>利用网页的JS修改HTML</li>
+<li>插入恶意脚本</li>
+</ol>
+</li>
+<li>存储型xss原理<ol>
+<li>攻击者将恶意JS脚本长期保存在服务器端数据库中</li>
+<li>用户一旦访问页面，就会执行恶意脚本</li>
+</ol>
+</li>
+</ul>
+<p><strong>危害</strong></p>
+<ul>
+<li>盗取用户cookie</li>
+<li>盗取账号</li>
+<li>进行未授权的操作</li>
+<li>修改DOM</li>
+<li>刷弹窗广告</li>
+<li>xss蠕虫攻击</li>
+<li>劫持用户，渗透内网</li>
+</ul>
+<p><strong>防御手段</strong></p>
+<ul>
+<li>一切用户输入皆不可信，输出时进行验证</li>
+<li>将HTML元素内容、属性、URL请求参数、CSS值进行编码</li>
+<li>若编码影响业务，则使用白名单规则进行检测和过滤</li>
+<li>使用W3C提出的CSP（内容安全策略），定义域名白名单</li>
+<li>设置Cookie的httpOnly属性</li>
+</ul>
+<h2 id="CSRF"><a href="#CSRF" class="headerlink" title="CSRF"></a>CSRF</h2><p><strong>本质</strong><br>跨站请求伪造。攻击者诱使用户打开构造的网站，从而获取用户的登录状态向被攻击的网站发起跨站请求，即冒充该用户的身份凭证绕过后台的身份验证进行某些操作。</p>
+<p><strong>防御手段</strong></p>
+<ul>
+<li>服务器端验证请求来源（Referer、Origin）</li>
+<li>使用CSRF Token（随机Token）</li>
+<li>加入二次验证（独立密码、验证码）</li>
+</ul>
+<h2 id="POC"><a href="#POC" class="headerlink" title="POC"></a>POC</h2><p>Proof Of Concept，“观点证明”。这个短语会在漏洞报告中使用，漏洞报告中的POC则是一段说明或者一个攻击的样例，使得读者能够确认这个漏洞是真实存在的。仅起到验证作用</p>
+<h2 id="EXP"><a href="#EXP" class="headerlink" title="EXP"></a>EXP</h2><p>Exploit，”漏洞利用“。意思是一段对漏洞如何利用的详细说明或者一个演示的漏洞攻击代码，可以使得读者完全了解漏洞的机理以及利用的方法。</p>
+<h2 id="常见的CMS"><a href="#常见的CMS" class="headerlink" title="常见的CMS"></a>常见的CMS</h2><ul>
+<li>ThinkPHP</li>
+<li>Weblogic</li>
+<li>dedeCMS</li>
+<li>Struts2</li>
+<li>WordPress</li>
+</ul>
+<h2 id="SQL注入"><a href="#SQL注入" class="headerlink" title="SQL注入"></a>SQL注入</h2><p><strong>原理</strong><br>通过构造特殊的SQL语句作为参数传入web应用程序，进而让服务器解析执行的攻击</p>
+<p><strong>危害</strong></p>
+<ul>
+<li>未授权操作数据库数据</li>
+<li>篡改网页内容</li>
+<li>添加修改系统账号或数据库账号</li>
+<li>网站挂马</li>
+</ul>
+<p><strong>典型攻击手段</strong></p>
+<ol>
+<li>判断是否存在注入</li>
+<li>收集信息，判断数据库类型</li>
+<li>根据注入参数类型构造SQL语句</li>
+<li>猜解数据库名，表名，字段名</li>
+<li>收集数据库信息</li>
+</ol>
+<p><strong>MySQL的information_schema的结构</strong><br>information_schema<br>—schemata<br>    |—schema_name<br>—tables<br>    |—table_schema,table_name<br>—columns<br>    |—table_schema,table_name,column_name</p>
+<h2 id="文件上传"><a href="#文件上传" class="headerlink" title="文件上传"></a>文件上传</h2><p><strong>必要条件</strong></p>
+<ol>
+<li>有上传点</li>
+<li>知道木马文件的访问路径</li>
+</ol>
+<h2 id="数据库服务开放且没有更改默认端口，但只能扫描到80端口的原因"><a href="#数据库服务开放且没有更改默认端口，但只能扫描到80端口的原因" class="headerlink" title="数据库服务开放且没有更改默认端口，但只能扫描到80端口的原因"></a>数据库服务开放且没有更改默认端口，但只能扫描到80端口的原因</h2><ol>
+<li>站库分离</li>
+<li>防火墙禁用3306端口</li>
+<li>3306端口仅监听localhost</li>
+</ol>
+<h2 id="拿到webshell之后可以干什么"><a href="#拿到webshell之后可以干什么" class="headerlink" title="拿到webshell之后可以干什么"></a>拿到webshell之后可以干什么</h2><ol>
+<li>找数据库配置文件，搜集用户名密码</li>
+<li>提权</li>
+<li>内网探测</li>
+<li>添加计划任务、修改注册表进行反弹shell</li>
 </ol>
 
             </div>
@@ -270,15 +338,21 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2021/02/03/#%20%E8%B0%B7%E6%AD%8C%E8%AF%AD%E6%B3%95/">
+                      <a href="/2021/02/03/Hexo%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">Google Hacking</span>
+                        <span class="hidden-mobile">基于CentOS+Nginx+Hexo搭建个人博客</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
                   </article>
                   <article class="post-next col-6">
                     
+                    
+                      <a href="/2021/02/03/%E4%BF%A1%E6%81%AF%E6%90%9C%E9%9B%86%E2%80%94%E2%80%94%E6%B8%97%E9%80%8F%E7%9A%84%E6%9C%AC%E8%B4%A8/">
+                        <span class="hidden-mobile">信息搜集</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
                     
                   </article>
                 </div>
