@@ -172,8 +172,8 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2021-02-03 18:17" pubdate>
-        2021年2月3日 晚上
+      <time datetime="2021-02-05 19:30" pubdate>
+        2021年2月5日 晚上
       </time>
     </span>
   
@@ -233,7 +233,7 @@
 <li><strong>inurl</strong><br> 功能：搜索url网址存在特定关键字的网页，可以用来搜寻有注入点的网站<br> 示例： <figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs awk">inurl:php?id= <span class="hljs-regexp">//</span>搜索网址中有<span class="hljs-string">&quot;php?id&quot;</span>的网页<br>inurl: <span class="hljs-regexp">/admin/</span> login.php <span class="hljs-regexp">//</span>搜索网址中有<span class="hljs-string">&quot;/admin/login.php&quot;</span>的网页<br></code></pre></td></tr></table></figure></li>
 <li><strong>intitle</strong><br> 功能：搜索标题存在特定关键字的网页<br> 示例： <figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs less"><span class="hljs-attribute">intitle</span>:后台登录 <span class="hljs-comment">//搜索网页标题是“后台登录”的相关网页</span><br><span class="hljs-attribute">intitle</span>:后台管理 <span class="hljs-attribute">filetype</span>:php <span class="hljs-comment">//搜索网页标题是后台管理”的php页面</span><br><span class="hljs-attribute">intitle</span>:index of <span class="hljs-string">&quot;keyword&quot;</span> <span class="hljs-comment">//搜索此关键字相关的索引目录信息</span><br><span class="hljs-attribute">intitle</span>:index of <span class="hljs-string">&quot;parent directory&quot;</span> <span class="hljs-comment">//搜索根目录相关的索引目录信息</span><br><span class="hljs-attribute">intitle</span>:index of <span class="hljs-string">&quot;password&quot;</span> <span class="hljs-comment">//搜索密码相关的索引目录信息</span><br></code></pre></td></tr></table></figure></li>
 <li><strong>intext</strong><br> 功能：搜索正文存在特定关键字的网页<br> 示例： <figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs less">	<span class="hljs-attribute">intext</span>:外部实体注入 <span class="hljs-comment">//搜索外部实体注入相关的页面</span><br>	<span class="hljs-attribute">intext</span>:Powered by dedecms <span class="hljs-comment">//搜索wordpress制作的博客网址</span><br>	<span class="hljs-attribute">intext</span>:powered by xxx <span class="hljs-attribute">inurl</span>:login <span class="hljs-comment">//搜索此类网址的后台登录页面</span><br>组合：搜索用Discuz搭建的论坛：<br>	<span class="hljs-attribute">inurl</span>:php ?id <span class="hljs-attribute">intitle</span>:电影 <span class="hljs-attribute">intext</span>:powered by discuz<br>	<span class="hljs-attribute">intext</span>:&quot;powered by discuz! <span class="hljs-number">7.2</span>” <span class="hljs-attribute">inurl</span>:faq.php <span class="hljs-attribute">intitle</span>:论坛<br>组合：搜索使用Struts的相关网站：<br>	<span class="hljs-attribute">intitle</span>: <span class="hljs-string">&quot; Struts Problem Report&quot;</span><br>	<span class="hljs-attribute">intitle</span>: <span class="hljs-string">&quot;Struts Problem Report&quot;</span> <span class="hljs-attribute">intext</span>: <span class="hljs-string">&quot;development mode is enabled.&quot;</span><br></code></pre></td></tr></table></figure></li>
-<li><strong>符号</strong> <figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs awk">-keyword <span class="hljs-regexp">//</span>强制结果不要出现此关键字,例如∶电影-黑客<br>\*keyword <span class="hljs-regexp">//</span>模糊搜索，强制结果包含此关键字,例如︰电影一个叫\*决定\*<br><span class="hljs-string">&quot;keyword&quot;</span>  <span class="hljs-regexp">//</span>强制搜索结果出现此关键字,例如∶书籍“web安全<span class="hljs-string">&quot;</span><br></code></pre></td></tr></table></figure></li>
+<li><strong>符号</strong> <figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs awk">-keyword <span class="hljs-regexp">//</span>强制结果不要出现此关键字,例如∶电影-黑客<br>*keyword <span class="hljs-regexp">//</span>模糊搜索，强制结果包含此关键字,例如︰电影一个叫*决定*<br><span class="hljs-string">&quot;keyword&quot;</span>  <span class="hljs-regexp">//</span>强制搜索结果出现此关键字,例如∶书籍“web安全<span class="hljs-string">&quot;</span><br></code></pre></td></tr></table></figure></li>
 </ol>
 
             </div>
@@ -251,15 +251,15 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2021/02/03/%E4%BF%A1%E6%81%AF%E6%90%9C%E9%9B%86%E2%80%94%E2%80%94%E6%B8%97%E9%80%8F%E7%9A%84%E6%9C%AC%E8%B4%A8/">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">信息搜集</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
+                    
+                      <a href="/2021/02/05/%E6%97%A5%E5%B8%B8%E6%91%98%E5%BD%95/">
+                        <span class="hidden-mobile"></span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
                     
                   </article>
                 </div>

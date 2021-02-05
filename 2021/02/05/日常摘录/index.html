@@ -17,7 +17,7 @@
   <meta name="description" content="">
   <meta name="author" content="yiyi">
   <meta name="keywords" content="">
-  <title>CentOS 7.6 快速部署开发环境 - 正一同学</title>
+  <title>正一同学</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
 
@@ -162,7 +162,7 @@
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="CentOS 7.6 快速部署开发环境">
+            <span class="h2" id="subtitle" title="">
               
             </span>
 
@@ -172,8 +172,8 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2021-02-03 18:17" pubdate>
-        2021年2月3日 晚上
+      <time datetime="2021-02-05 19:26" pubdate>
+        2021年2月5日 晚上
       </time>
     </span>
   
@@ -184,7 +184,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      301 字
+      318 字
     </span>
   
 
@@ -194,7 +194,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      4
+      3
        分钟
     </span>
   
@@ -224,33 +224,28 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">CentOS 7.6 快速部署开发环境</h1>
+            <h1 style="display: none"></h1>
             
             <div class="markdown-body">
-              <h2 id="CentOS-7-6-快速部署开发环境（Apache-MySQL-PHP）"><a href="#CentOS-7-6-快速部署开发环境（Apache-MySQL-PHP）" class="headerlink" title="CentOS 7.6 快速部署开发环境（Apache+MySQL+PHP）"></a>CentOS 7.6 快速部署开发环境（Apache+MySQL+PHP）</h2><h3 id="一、安装Apache服务"><a href="#一、安装Apache服务" class="headerlink" title="一、安装Apache服务"></a>一、安装Apache服务</h3><p>1.安装Apache服务及其扩展包</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">yum -y install httpd httpd-manual mod_ssl mod_perl mod_auth_mysql<br></code></pre></td></tr></table></figure>
-<p>2.启动Apache服务</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">systemctl start httpd.service<br></code></pre></td></tr></table></figure>
-<h3 id="二、安装MySQL数据库"><a href="#二、安装MySQL数据库" class="headerlink" title="二、安装MySQL数据库"></a>二、安装MySQL数据库</h3><p>1.下载并安装MySQL</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs shell">wget http://dev.mysql.com/get/mysql57-community-release-el7-10.noarch.rpm &amp;&amp; <br>yum -y install mysql57-community-release-el7-10.noarch.rpm &amp;&amp; <br>yum -y install mysql-community-server<br></code></pre></td></tr></table></figure>
-<p>2.启动MySQL数据库</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">systemctl start mysqld.service<br></code></pre></td></tr></table></figure>
-<p>3.查看MySQL初始密码</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">grep &quot;password&quot; /var/log/mysqld.log<br></code></pre></td></tr></table></figure>
-<p>4.登录数据库</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs mysql">mysql -uroot -p 上一步的密码<br></code></pre></td></tr></table></figure>
-<p>5.修改MySQL默认密码</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs mysql">set global validate_password_policy&#x3D;0;  &#x2F;&#x2F;修改密码安全策略为低（只校验密码长度，至少8位）。<br>ALTER USER &#39;root&#39;@&#39;localhost&#39; IDENTIFIED BY &#39;12345678&#39;;<br></code></pre></td></tr></table></figure>
-<p>6.授予root用户远程管理权限</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs mysql">GRANT ALL PRIVILEGES ON *.* TO &#39;root&#39;@&#39;%&#39; IDENTIFIED BY &#39;12345678&#39;;<br></code></pre></td></tr></table></figure>
-<p>7.输入exit退出数据库</p>
-<h3 id="三、安装PHP"><a href="#三、安装PHP" class="headerlink" title="三、安装PHP"></a>三、安装PHP</h3><p>1.安装PHP环境</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">yum -y install php php-mysql gd php-gd gd-devel php-xml php-common php-mbstring php-ldap php-pear php-xmlrpc php-imap<br></code></pre></td></tr></table></figure>
-<p>2.创建PHP测试页面</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">echo &quot;&lt;?php phpinfo(); ?&gt;&quot; &gt; /var/www/html/phpinfo.php<br></code></pre></td></tr></table></figure>
-<p>3.重启Apache服务</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">systemctl restart httpd<br></code></pre></td></tr></table></figure>
-<p>4.打开浏览器，查看phpinfo界面显示成功</p>
+              <h1 id="日常摘录"><a href="#日常摘录" class="headerlink" title="日常摘录"></a>日常摘录</h1><p><strong>2021年2月4日，天气阴，北方小年</strong></p>
+<ol>
+<li><p>You can be mad as a mad dog at the way things went. You could swear, curse the fates. But when it comes to the end, you have to let go.<br>不顺心的时候。你可以像疯狗那样发狂，你可以破口大骂，诅咒命运。但到头来，还是得放手。<br><em>——《本杰明 巴顿奇事》</em></p>
+</li>
+<li><p>Some of us get dipped in flat, some in satin, some in gloss. But every once in a while you find someone who’s iridescent, and when you do, nothing will ever compare.<br> 有人住高楼，有人在深沟，有人光万丈，有人一身锈。人万千种，浮云莫去求。斯人若彩虹，遇上方知有。<br><em>——《怦然心动》</em></p>
+</li>
+<li><p>你不愿意种花，<br>你说，<br>你不愿看见它一点点凋落。<br>是的，<br>为了避免结束，你避免了一切开始。<br>——<em>顾城 《避免》</em></p>
+</li>
+</ol>
+<hr>
+<p><strong>2021年2月5日，天气多云，南方小年</strong></p>
+<ol start="4">
+<li><p>Future in deep winter, in early spring, in the summer solstice, in autumn.<br>前程似锦，在冬深，在初春，在夏至，在秋末。</p>
+</li>
+<li><p>你是北大西洋暖流，我是摩尔曼斯克港<br>因为你的到来，我的世界成了不冻港。</p>
+</li>
+<li><p>他的脸红不是因为亚热带的气候，而是因为那天太阳不忠，出卖一九九四年夏末心动。<br><em>——温特梅《太平山顶》</em></p>
+</li>
+</ol>
 
             </div>
             <hr>
@@ -267,9 +262,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2021/02/05/%E6%97%A5%E5%B8%B8%E6%91%98%E5%BD%95/">
+                      <a href="/2021/02/05/%E8%B0%B7%E6%AD%8C%E8%AF%AD%E6%B3%95/">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile"></span>
+                        <span class="hidden-mobile">Google Hacking</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -277,8 +272,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2021/02/03/Hexo%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/">
-                        <span class="hidden-mobile">基于CentOS+Nginx+Hexo搭建个人博客</span>
+                      <a href="/2021/02/03/CentOS%E9%83%A8%E7%BD%B2%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/">
+                        <span class="hidden-mobile">CentOS 7.6 快速部署开发环境</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
