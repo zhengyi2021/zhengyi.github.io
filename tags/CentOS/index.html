@@ -17,25 +17,9 @@
   <meta name="description" content="">
   <meta name="author" content="yiyi">
   <meta name="keywords" content="">
-  <title>信息搜集 - 正一同学</title>
+  <title>标签 - CentOS - 正一同学</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
-
-
-  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css" />
-  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
-
-  
-    
-    
-      
-      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.4.0/styles/github-gist.min.css" />
-    
-  
-
-  
-    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
-  
 
 
 
@@ -63,7 +47,7 @@
 
 
 <body>
-  <header style="height: 70vh;">
+  <header style="height: 80vh;">
     <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
     <a class="navbar-brand"
@@ -162,50 +146,17 @@
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="信息搜集">
+            <span class="h2" id="subtitle" title="标签 - CentOS">
               
             </span>
 
             
-              <div class="mt-3">
-  
-  
-    <span class="post-meta">
-      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2021-02-03 18:17" pubdate>
-        2021年2月3日 晚上
-      </time>
-    </span>
-  
-</div>
-
-<div class="mt-1">
-  
-    
-    <span class="post-meta mr-2">
-      <i class="iconfont icon-chart"></i>
-      305 字
-    </span>
-  
-
-  
-    
-    <span class="post-meta mr-2">
-      <i class="iconfont icon-clock-fill"></i>
-      
-      
-      4
-       分钟
-    </span>
-  
-
-  
-  
-</div>
-
-            
           </div>
 
+          
+            <div class="scroll-down-bar">
+              <i class="iconfont icon-arrowdown"></i>
+            </div>
           
         </div>
       </div>
@@ -214,97 +165,46 @@
 
   <main>
     
+      <div class="container nopadding-x-md">
+        <div class="py-5" id="board"
+          >
+          
+          <div class="container">
+            <div class="row">
+              <div class="col-12 col-md-10 m-auto">
+                
+
+<div class="list-group">
+  <p class="h4">共计 2 篇文章</p>
+  <hr>
+  
+  
+    
       
+      <p class="h5">2021</p>
+    
+    <a href="/2021/02/07/Hexo%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/" class="list-group-item list-group-item-action">
+      <span class="archive-post-title">基于CentOS+Nginx+Hexo搭建个人博客</span>
+      <time style="float: right;">02-07</time>
+    </a>
+  
+    
+    <a href="/2021/02/07/CentOS%E9%83%A8%E7%BD%B2%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/" class="list-group-item list-group-item-action">
+      <span class="archive-post-title">CentOS 7.6 快速部署开发环境</span>
+      <time style="float: right;">02-07</time>
+    </a>
+  
+</div>
 
-<div class="container-fluid nopadding-x">
-  <div class="row nomargin-x">
-    <div class="d-none d-lg-block col-lg-2"></div>
-    <div class="col-lg-8 nopadding-x-md">
-      <div class="container nopadding-x-md" id="board-ctn">
-        <div class="py-5" id="board">
-          <article class="post-content mx-auto">
-            <!-- SEO header -->
-            <h1 style="display: none">信息搜集</h1>
-            
-            <div class="markdown-body">
-              <h1 id="信息搜集——渗透的本质"><a href="#信息搜集——渗透的本质" class="headerlink" title="信息搜集——渗透的本质"></a>信息搜集——渗透的本质</h1><ol>
-<li><strong>域名-&gt;IP</strong><br> CDN：内容分发网络<pre><code> 通过邮件（看邮箱头源ip）找真是ip
- 通过查询域名历史ip，http://toolbar.netcraft.com
- 超级ping：http://ping.aizhan.com    http://ping.chinaz.com\
- 查子域名：因为有的子域名没有使用CDN
-</code></pre>
- DNS：<a target="_blank" rel="noopener" href="http://site.ip138.com/">http://site.ip138.com</a> </li>
-<li><strong>域名-&gt;whois</strong><br> 邮箱、注册人、公司、电话<br> 备案：<a target="_blank" rel="noopener" href="https://www.tianyancha.com/">https://www.tianyancha.com</a></li>
-<li><strong>cms</strong><br> 常见cms：WordPress、Dedecms、Discuz、ThinkPHP<br> 在线工具：<pre><code> BugScaner:https://whatweb.bugscaner.com/look/
- 云悉指纹：http://www.yunsee.cn/finger.html
- WhatWeb:https://whatweb.net
-</code></pre>
- 火狐插件：<pre><code> Wapplayzer
-</code></pre>
- 服务器类型：<pre><code> TTL值：Windows的TTL值一般是128，Linux是64
-</code></pre>
- 网站容器（中间件）<br> 脚本类型<br> 数据库类型（报错、端口）<pre><code> 常见搭配：
-     ASP和.NET:Microsoft SQL Server
-     PHP:MySQL、Post
-     Java:Oracal、MySQL
-</code></pre>
-</li>
-<li><strong>目录扫描（御剑、爬虫_rad_长亭爬虫、dirsearch）</strong></li>
-<li><strong>子域名</strong><br> SubDomainBrute：<a target="_blank" rel="noopener" href="https://github.com/lijiejie/subDomainsBrute">https://github.com/lijiejie/subDomainsBrute</a><br> Sublist3r：<a target="_blank" rel="noopener" href="https://github.com/aboul3la/Sublist3r">https://github.com/aboul3la/Sublist3r</a><br> Layer（5.0增强版）：<a target="_blank" rel="noopener" href="https://pan.baidu.com/s/1Jja4QK5BsAXJ0i0Ax8Ve2Q">https://pan.baidu.com/s/1Jja4QK5BsAXJ0i0Ax8Ve2Q</a>  密码:aup5<br> <a target="_blank" rel="noopener" href="https://d.chinacycc.com(大佬推荐的说好用的很,但是收费.)/">https://d.chinacycc.com（大佬推荐的说好用的很，但是收费。）</a><br> 在线工具：<a target="_blank" rel="noopener" href="http://z.zcjun.com/">http://z.zcjun.com/</a></li>
-<li><strong>端口扫描</strong></li>
-<li><strong>waf识别</strong><br> 在kail中最常用的WAF扫描工具是wafw00f<br> wafw00f -l<br> #查看该工具能检测那些WAF<br> wafw00f <a target="_blank" rel="noopener" href="http://www.baidu.com/">http://www.baidu.com</a><br>github开源工具利用：<br> <a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/53112370">https://zhuanlan.zhihu.com/p/53112370</a></li>
-</ol>
 
-            </div>
-            <hr>
-            <div>
-              <div class="post-metas mb-3">
-                
-                
+
+
+
               </div>
-              
-                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
-              
-              
-                <div class="post-prevnext">
-                  <article class="post-prev col-6">
-                    
-                    
-                      <a href="/2021/02/03/Web%E5%AE%89%E5%85%A8%E9%9D%A2%E8%AF%95%E9%A2%98/">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">Web安全面试题</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
-                  </article>
-                  <article class="post-next col-6">
-                    
-                    
-                  </article>
-                </div>
-              
             </div>
-
-            
-          </article>
+          </div>
         </div>
       </div>
-    </div>
-    
-      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
-        <div id="toc">
-  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
-  <div class="toc-body" id="toc-body"></div>
-</div>
-
-      </div>
-    
-  </div>
-</div>
-
-<!-- Custom -->
-
-
     
 
     
@@ -394,15 +294,9 @@
 
 
 
-  <script  src="https://cdn.jsdelivr.net/npm/tocbot@4.12.0/dist/tocbot.min.js" ></script>
 
 
 
-  <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" ></script>
-
-
-
-  <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4.3.0/anchor.min.js" ></script>
 
 
 
