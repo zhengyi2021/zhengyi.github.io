@@ -17,7 +17,7 @@
   <meta name="description" content="">
   <meta name="author" content="yiyi">
   <meta name="keywords" content="">
-  <title>CentOS 7.6 快速部署开发环境 - 正一同学</title>
+  <title>表单验证常见问题汇总 - 正一同学</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
 
@@ -162,7 +162,7 @@
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="CentOS 7.6 快速部署开发环境">
+            <span class="h2" id="subtitle" title="表单验证常见问题汇总">
               
             </span>
 
@@ -172,8 +172,8 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2021-02-07 10:17" pubdate>
-        2021年2月7日 上午
+      <time datetime="2020-03-11 06:03" pubdate>
+        2020年3月11日 早上
       </time>
     </span>
   
@@ -184,7 +184,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      301 字
+      748 字
     </span>
   
 
@@ -194,7 +194,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      4
+      8
        分钟
     </span>
   
@@ -224,33 +224,32 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">CentOS 7.6 快速部署开发环境</h1>
+            <h1 style="display: none">表单验证常见问题汇总</h1>
             
             <div class="markdown-body">
-              <h2 id="CentOS-7-6-快速部署开发环境（Apache-MySQL-PHP）"><a href="#CentOS-7-6-快速部署开发环境（Apache-MySQL-PHP）" class="headerlink" title="CentOS 7.6 快速部署开发环境（Apache+MySQL+PHP）"></a>CentOS 7.6 快速部署开发环境（Apache+MySQL+PHP）</h2><h3 id="一、安装Apache服务"><a href="#一、安装Apache服务" class="headerlink" title="一、安装Apache服务"></a>一、安装Apache服务</h3><p>1.安装Apache服务及其扩展包</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">yum -y install httpd httpd-manual mod_ssl mod_perl mod_auth_mysql<br></code></pre></td></tr></table></figure>
-<p>2.启动Apache服务</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">systemctl start httpd.service<br></code></pre></td></tr></table></figure>
-<h3 id="二、安装MySQL数据库"><a href="#二、安装MySQL数据库" class="headerlink" title="二、安装MySQL数据库"></a>二、安装MySQL数据库</h3><p>1.下载并安装MySQL</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs shell">wget http://dev.mysql.com/get/mysql57-community-release-el7-10.noarch.rpm &amp;&amp; <br>yum -y install mysql57-community-release-el7-10.noarch.rpm &amp;&amp; <br>yum -y install mysql-community-server<br></code></pre></td></tr></table></figure>
-<p>2.启动MySQL数据库</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">systemctl start mysqld.service<br></code></pre></td></tr></table></figure>
-<p>3.查看MySQL初始密码</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">grep &quot;password&quot; /var/log/mysqld.log<br></code></pre></td></tr></table></figure>
-<p>4.登录数据库</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs mysql">mysql -uroot -p 上一步的密码<br></code></pre></td></tr></table></figure>
-<p>5.修改MySQL默认密码</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs mysql">set global validate_password_policy&#x3D;0;  &#x2F;&#x2F;修改密码安全策略为低（只校验密码长度，至少8位）。<br>ALTER USER &#39;root&#39;@&#39;localhost&#39; IDENTIFIED BY &#39;12345678&#39;;<br></code></pre></td></tr></table></figure>
-<p>6.授予root用户远程管理权限</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs mysql">GRANT ALL PRIVILEGES ON *.* TO &#39;root&#39;@&#39;%&#39; IDENTIFIED BY &#39;12345678&#39;;<br></code></pre></td></tr></table></figure>
-<p>7.输入exit退出数据库</p>
-<h3 id="三、安装PHP"><a href="#三、安装PHP" class="headerlink" title="三、安装PHP"></a>三、安装PHP</h3><p>1.安装PHP环境</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">yum -y install php php-mysql gd php-gd gd-devel php-xml php-common php-mbstring php-ldap php-pear php-xmlrpc php-imap<br></code></pre></td></tr></table></figure>
-<p>2.创建PHP测试页面</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">echo &quot;&lt;?php phpinfo(); ?&gt;&quot; &gt; /var/www/html/phpinfo.php<br></code></pre></td></tr></table></figure>
-<p>3.重启Apache服务</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">systemctl restart httpd<br></code></pre></td></tr></table></figure>
-<p>4.打开浏览器，查看phpinfo界面显示成功</p>
+              <h1 id="表单验证常见问题汇总"><a href="#表单验证常见问题汇总" class="headerlink" title="表单验证常见问题汇总"></a>表单验证常见问题汇总</h1><h2 id="1-表单验证的基本流程是什么？"><a href="#1-表单验证的基本流程是什么？" class="headerlink" title="1. 表单验证的基本流程是什么？"></a>1. 表单验证的基本流程是什么？</h2><p>在登陆页面提交信息，提交到后端数据库验证，然后返回信息到其他或原有页面</p>
+<h2 id="2-验证页面和数据库连接页面可以写在同一文件吗？"><a href="#2-验证页面和数据库连接页面可以写在同一文件吗？" class="headerlink" title="2. 验证页面和数据库连接页面可以写在同一文件吗？"></a>2. 验证页面和数据库连接页面可以写在同一文件吗？</h2><p>可以写在同一个文件中</p>
+<h2 id="3-连接数据库函数是什么？"><a href="#3-连接数据库函数是什么？" class="headerlink" title="3. 连接数据库函数是什么？"></a>3. 连接数据库函数是什么？</h2><p>mysqli_connect(地址,用户名,密码)</p>
+<h2 id="4-POST提交方式和GET方式有什么区别"><a href="#4-POST提交方式和GET方式有什么区别" class="headerlink" title="4. POST提交方式和GET方式有什么区别"></a>4. POST提交方式和GET方式有什么区别</h2><p>GET会通过url传参，POST的传递参数量可以比GET多得多</p>
+<h2 id="5-如何对输入的字符如何进行过滤"><a href="#5-如何对输入的字符如何进行过滤" class="headerlink" title="5. 如何对输入的字符如何进行过滤"></a>5. 如何对输入的字符如何进行过滤</h2><p>用正则表达式来进行过滤</p>
+<h2 id="6-mysql-select-db的作用"><a href="#6-mysql-select-db的作用" class="headerlink" title="6. mysql_select_db的作用"></a>6. mysql_select_db的作用</h2><p>mysql_select_db() 函数设置活动的 MySQL 数据库，访问数据库</p>
+<h2 id="7-表单填入的信息如何提交到后端的处理php中"><a href="#7-表单填入的信息如何提交到后端的处理php中" class="headerlink" title="7. 表单填入的信息如何提交到后端的处理php中"></a>7. 表单填入的信息如何提交到后端的处理php中</h2><p>通过form表单提交</p>
+<h2 id="8-如果表单中加入校验输入的信息错误怎么处理"><a href="#8-如果表单中加入校验输入的信息错误怎么处理" class="headerlink" title="8. 如果表单中加入校验输入的信息错误怎么处理"></a>8. 如果表单中加入校验输入的信息错误怎么处理</h2><p>可以用JS书写弹窗提示,或者在页面输出错误信息</p>
+<h2 id="9-后端php是怎么和数据库交互的"><a href="#9-后端php是怎么和数据库交互的" class="headerlink" title="9. 后端php是怎么和数据库交互的"></a>9. 后端php是怎么和数据库交互的</h2><p>通过Mysqli扩展进行交互，课程中会细讲</p>
+<h2 id="10-表单标签中可以控制传参方式吗？"><a href="#10-表单标签中可以控制传参方式吗？" class="headerlink" title="10. 表单标签中可以控制传参方式吗？"></a>10. 表单标签中可以控制传参方式吗？</h2><p>表单标签中的method属性决定这这个表单的传参方式（GET|POST）</p>
+<h2 id="11-表单标签如果不写传参方式不写提交地址会如何？"><a href="#11-表单标签如果不写传参方式不写提交地址会如何？" class="headerlink" title="11. 表单标签如果不写传参方式不写提交地址会如何？"></a>11. 表单标签如果不写传参方式不写提交地址会如何？</h2><p>不写传参方式默认传参是GET，不写提交地址默认传参在当前文件</p>
+<h2 id="12-PHP和HTML代码可以混合书写吗？"><a href="#12-PHP和HTML代码可以混合书写吗？" class="headerlink" title="12. PHP和HTML代码可以混合书写吗？"></a>12. PHP和HTML代码可以混合书写吗？</h2><p>当然可以，PHP和HTML可以混合书写</p>
+<h2 id="13-有一些变量无法输出怎么办？"><a href="#13-有一些变量无法输出怎么办？" class="headerlink" title="13. 有一些变量无法输出怎么办？"></a>13. 有一些变量无法输出怎么办？</h2><p>我们可以使用var_dump()去查看其数据类型</p>
+<h2 id="14-表单中的target属性有什么作用？"><a href="#14-表单中的target属性有什么作用？" class="headerlink" title="14. 表单中的target属性有什么作用？"></a>14. 表单中的target属性有什么作用？</h2><p>决定表单提交后究竟是新打开一个页面还是当前页面跳转</p>
+<h2 id="15-什么是变量为空？"><a href="#15-什么是变量为空？" class="headerlink" title="15. 什么是变量为空？"></a>15. 什么是变量为空？</h2><p>$a = ‘’; $b =null ;$c = ‘123’; 在这个代码中只有变量b是空</p>
+<h2 id="16-Stripos-怎么使用？"><a href="#16-Stripos-怎么使用？" class="headerlink" title="16. Stripos()怎么使用？"></a>16. Stripos()怎么使用？</h2><p>我们可以让这个函数去查找关键字，比如传参进行查询，如果查询到and什么的直接拦截</p>
+<h2 id="17-Stripos-进行拦截可以用大小写绕过吗？"><a href="#17-Stripos-进行拦截可以用大小写绕过吗？" class="headerlink" title="17. Stripos() 进行拦截可以用大小写绕过吗？"></a>17. Stripos() 进行拦截可以用大小写绕过吗？</h2><p>这个函数不区分大小写，不能</p>
+<h2 id="18-isset-有什么用？"><a href="#18-isset-有什么用？" class="headerlink" title="18. isset()有什么用？"></a>18. isset()有什么用？</h2><p>可以判断变量是不是存在且不为Null</p>
+<h2 id="19-执行数据库语句用什么函数"><a href="#19-执行数据库语句用什么函数" class="headerlink" title="19. 执行数据库语句用什么函数"></a>19. 执行数据库语句用什么函数</h2><p>mysqli_query($conn,$sql)</p>
+<h2 id="20-数组如何提取？"><a href="#20-数组如何提取？" class="headerlink" title="20. 数组如何提取？"></a>20. 数组如何提取？</h2><p>我们可以用中括号，$a = array(‘a’,’b’) ; $a[0]就是选中了a数组中的键值为0的数据 $a[0] 在这里就是字符串a</p>
+<h2 id="21-is-numeric-函数所谓的必须是数字在意类型吗？"><a href="#21-is-numeric-函数所谓的必须是数字在意类型吗？" class="headerlink" title="21. is_numeric() 函数所谓的必须是数字在意类型吗？"></a>21. is_numeric() 函数所谓的必须是数字在意类型吗？</h2><p>并不在意，字符串类型的数字它也会返回Ture</p>
+<h2 id="22-php中怎么判断是否相等"><a href="#22-php中怎么判断是否相等" class="headerlink" title="22. php中怎么判断是否相等?"></a>22. php中怎么判断是否相等?</h2><p>在php中一个等于是赋值，两个等于是比较是否相等，三个等于不仅仅会比较内容而且会比较类型</p>
+<h2 id="23-遇到看不懂的函数怎么办？"><a href="#23-遇到看不懂的函数怎么办？" class="headerlink" title="23. 遇到看不懂的函数怎么办？"></a>23. 遇到看不懂的函数怎么办？</h2><p>查W3c和php官网还有菜鸟教程</p>
 
             </div>
             <hr>
@@ -260,7 +259,7 @@
                   <div class="post-meta mr-3">
                     <i class="iconfont icon-category"></i>
                     
-                      <a class="hover-with-bg" href="/categories/%E7%8E%AF%E5%A2%83%E9%83%A8%E7%BD%B2/">环境部署</a>
+                      <a class="hover-with-bg" href="/categories/Web%E5%AE%89%E5%85%A8/">Web安全</a>
                     
                   </div>
                 
@@ -268,9 +267,7 @@
                   <div class="post-meta">
                     <i class="iconfont icon-tags"></i>
                     
-                      <a class="hover-with-bg" href="/tags/%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/">开发环境</a>
-                    
-                      <a class="hover-with-bg" href="/tags/CentOS/">CentOS</a>
+                      <a class="hover-with-bg" href="/tags/%E7%BD%91%E5%AE%89/">网安</a>
                     
                   </div>
                 
@@ -283,9 +280,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2021/02/07/Hexo%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/">
+                      <a href="/2020/03/15/sql_question/">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">基于CentOS+Nginx+Hexo搭建个人博客</span>
+                        <span class="hidden-mobile">偏移注入常见问题汇总</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -293,8 +290,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2020/10/05/Linux/">
-                        <span class="hidden-mobile">Linux基础</span>
+                      <a href="/2020/02/15/OverTheWire-Bandit/">
+                        <span class="hidden-mobile">OverTheWire-Bandit 解题思路（一）</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>

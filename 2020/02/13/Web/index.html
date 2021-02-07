@@ -17,7 +17,7 @@
   <meta name="description" content="">
   <meta name="author" content="yiyi">
   <meta name="keywords" content="">
-  <title>CentOS 7.6 快速部署开发环境 - 正一同学</title>
+  <title>Web服务器通信原理 - 正一同学</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
 
@@ -162,7 +162,7 @@
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="CentOS 7.6 快速部署开发环境">
+            <span class="h2" id="subtitle" title="Web服务器通信原理">
               
             </span>
 
@@ -172,8 +172,8 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2021-02-07 10:17" pubdate>
-        2021年2月7日 上午
+      <time datetime="2020-02-13 17:30" pubdate>
+        2020年2月13日 下午
       </time>
     </span>
   
@@ -184,7 +184,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      301 字
+      1.4k 字
     </span>
   
 
@@ -194,7 +194,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      4
+      15
        分钟
     </span>
   
@@ -224,55 +224,66 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">CentOS 7.6 快速部署开发环境</h1>
+            <h1 style="display: none">Web服务器通信原理</h1>
             
             <div class="markdown-body">
-              <h2 id="CentOS-7-6-快速部署开发环境（Apache-MySQL-PHP）"><a href="#CentOS-7-6-快速部署开发环境（Apache-MySQL-PHP）" class="headerlink" title="CentOS 7.6 快速部署开发环境（Apache+MySQL+PHP）"></a>CentOS 7.6 快速部署开发环境（Apache+MySQL+PHP）</h2><h3 id="一、安装Apache服务"><a href="#一、安装Apache服务" class="headerlink" title="一、安装Apache服务"></a>一、安装Apache服务</h3><p>1.安装Apache服务及其扩展包</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">yum -y install httpd httpd-manual mod_ssl mod_perl mod_auth_mysql<br></code></pre></td></tr></table></figure>
-<p>2.启动Apache服务</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">systemctl start httpd.service<br></code></pre></td></tr></table></figure>
-<h3 id="二、安装MySQL数据库"><a href="#二、安装MySQL数据库" class="headerlink" title="二、安装MySQL数据库"></a>二、安装MySQL数据库</h3><p>1.下载并安装MySQL</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs shell">wget http://dev.mysql.com/get/mysql57-community-release-el7-10.noarch.rpm &amp;&amp; <br>yum -y install mysql57-community-release-el7-10.noarch.rpm &amp;&amp; <br>yum -y install mysql-community-server<br></code></pre></td></tr></table></figure>
-<p>2.启动MySQL数据库</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">systemctl start mysqld.service<br></code></pre></td></tr></table></figure>
-<p>3.查看MySQL初始密码</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">grep &quot;password&quot; /var/log/mysqld.log<br></code></pre></td></tr></table></figure>
-<p>4.登录数据库</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs mysql">mysql -uroot -p 上一步的密码<br></code></pre></td></tr></table></figure>
-<p>5.修改MySQL默认密码</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs mysql">set global validate_password_policy&#x3D;0;  &#x2F;&#x2F;修改密码安全策略为低（只校验密码长度，至少8位）。<br>ALTER USER &#39;root&#39;@&#39;localhost&#39; IDENTIFIED BY &#39;12345678&#39;;<br></code></pre></td></tr></table></figure>
-<p>6.授予root用户远程管理权限</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs mysql">GRANT ALL PRIVILEGES ON *.* TO &#39;root&#39;@&#39;%&#39; IDENTIFIED BY &#39;12345678&#39;;<br></code></pre></td></tr></table></figure>
-<p>7.输入exit退出数据库</p>
-<h3 id="三、安装PHP"><a href="#三、安装PHP" class="headerlink" title="三、安装PHP"></a>三、安装PHP</h3><p>1.安装PHP环境</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">yum -y install php php-mysql gd php-gd gd-devel php-xml php-common php-mbstring php-ldap php-pear php-xmlrpc php-imap<br></code></pre></td></tr></table></figure>
-<p>2.创建PHP测试页面</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">echo &quot;&lt;?php phpinfo(); ?&gt;&quot; &gt; /var/www/html/phpinfo.php<br></code></pre></td></tr></table></figure>
-<p>3.重启Apache服务</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">systemctl restart httpd<br></code></pre></td></tr></table></figure>
-<p>4.打开浏览器，查看phpinfo界面显示成功</p>
+              <h1 id="Web服务器通信原理"><a href="#Web服务器通信原理" class="headerlink" title="Web服务器通信原理"></a>Web服务器通信原理</h1><h2 id="一、基本知识介绍"><a href="#一、基本知识介绍" class="headerlink" title="一、基本知识介绍"></a>一、基本知识介绍</h2><h3 id="1-IP"><a href="#1-IP" class="headerlink" title="1.IP"></a>1.IP</h3><p>定义：互联网协议地址，缩写为IP地址，是分配给用户上网使用的网际协议的设备的数字标签。</p>
+<p>理解：ip实际上就是地址，如果我想到你家去玩，那么我肯定要知道你家住在哪里，ip实际上就是你电脑的地址，在网络上可以通过ip来访问你的计算机。</p>
+<p>ip有内网和公网的概念。什么是内网？什么是公网？</p>
+<p>打个比方：</p>
+<p>你家的门牌号那就是个公网地址，X省X市X街道X号，别人看到这个地址就能找到你家</p>
+<p>内网地址是什么妮，假设你住的是一个大楼，比如住401房间，那么只有同一个大楼里面的人才能够通过401这个地址找到你的房间吧。其他人根本不知道是哪里的401房间对吧</p>
+<p>公网地址是运营商分配的，内网地址是路由器分配的。</p>
+<p>如何判断地址是公网还是内网呢？这些地址就是内网地址了</p>
+<p>10.0.0.0<del>10.255.255.255 |172.16.0.0</del>172.31.255.255 |192.168.0.0~192.168.255.255</p>
+<p>对于自己而言，如果你是本机访问本机，那么127.0.0.1或者localhost都代表着自己</p>
+<h3 id="2-域名"><a href="#2-域名" class="headerlink" title="2.域名"></a>2.域名</h3><p>定义：域名实际上是为了方便记忆所发明的一个字符型标识</p>
+<h3 id="3-DNS"><a href="#3-DNS" class="headerlink" title="3.DNS"></a>3.DNS</h3><p>定义：将域名转化为ip的一个协议</p>
+<h3 id="4-端口"><a href="#4-端口" class="headerlink" title="4.端口"></a>4.端口</h3><p>端口就像电脑的接口，像USB接口，比如你需要用键盘时候，你要把键盘插入接口，端口就是类似的东西，端口主要是网络接口，比如你去访问别人网站，一般来说你实际上是去他的80端口进行通信。</p>
+<p>我们有多少个端口？有范围是从0 到65535（2^16-1）</p>
+<p>0端口是预留端口。一般不会用到</p>
+<h3 id="5-MAC地址"><a href="#5-MAC地址" class="headerlink" title="5.MAC地址"></a>5.MAC地址</h3><p>网卡的物理地址通常是由网卡生产厂家烧入网卡(全球唯一性) 可以伪造</p>
+<h3 id="6-HTTP协议"><a href="#6-HTTP协议" class="headerlink" title="6.HTTP协议"></a>6.HTTP协议</h3><p>超文本传输协议（HTTP，HyperText Transfer Protocol)是互联网上应用最为广泛的一种网络协议。设计HTTP最初的目的是为了提供一种发布和接收HTML页面的方法，基本*问网站都是使用HTTP协议</p>
+<p>HTTP协议我们来看看需要了解什么，我们拿一个HTTP通信数据包来讲解</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs shell">GET /?tn=62095104_26_oem_dg HTTP/1.1<br>Host: baidu.com<br>User-Agent: Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko)<br>Chrome/69.0.3497.100 Safari/537.36<br>Cookie:BAIDUID=73B3EA8C6CE97FA3AEA1C885FECA03A9:FG=1; BIDUPSID=73B3EA8C6CE97FA3AEA1C885FECA03A9; PSTM=1558791249<br></code></pre></td></tr></table></figure>
+<p>GET 是请求方式 HTTP/1.1 是协议版本 HOST是访问的域名 User-Agent传参是传参告诉别人你的浏览器是什么，是什么系统呀。Cookie就是一个用户的凭证。就是代表你的身份，比如你登陆后，那串Cookie被人窃取了，那么利用那串Cookie，他就可以直接有你账号登陆的权限。</p>
+<h2 id="二、网页浏览流程"><a href="#二、网页浏览流程" class="headerlink" title="二、网页浏览流程"></a>二、网页浏览流程</h2><h3 id="1-从访客角度看网页浏览流程"><a href="#1-从访客角度看网页浏览流程" class="headerlink" title="1.从访客角度看网页浏览流程"></a>1.从访客角度看网页浏览流程</h3><p>1.1.1.1 baidu.com → 网关 →DNS表，qzone.qq.com→ IP web服务器</p>
+<p>（1）用户在浏览器输入协议://域名，如 <a target="_blank" rel="noopener" href="http://www.zkaq.org/">http://www.zkaq.org</a></p>
+<p>（2）用户浏览器通过系统 → 向DNS服务器查询域名对应的IP地址</p>
+<p>（3）用户浏览器向查询到的IP地址(Web服务器)发起HTTP请求</p>
+<p>（4）服务器分析用户请求，从中提取数据，处理后返回一个http响应</p>
+<p>（5）浏览器收到响应后提取状态、协议编码、正文的有效信息，然后翻译成人类能够直观理解的图形界面并显示。</p>
+<h3 id="2-常见的服务器系统"><a href="#2-常见的服务器系统" class="headerlink" title="2.常见的服务器系统"></a>2.常见的服务器系统</h3><ul>
+<li><p>Linux</p>
+</li>
+<li><p>Windows Server</p>
+</li>
+<li><p>macOS Server</p>
+</li>
+</ul>
+<p><strong>看到盘符一定是WINDOWS，看到/开头一般都是LIUNX(毕竟拿macOS做系统很罕见)</strong></p>
+<h3 id="3-相对路径和绝对路径"><a href="#3-相对路径和绝对路径" class="headerlink" title="3.相对路径和绝对路径"></a>3.相对路径和绝对路径</h3><h4 id="（1）绝对路径"><a href="#（1）绝对路径" class="headerlink" title="（1）绝对路径"></a>（1）绝对路径</h4><p>先说在本地计算机上，文件的绝对路径当然是指：文件在硬盘上真正存在的路径。</p>
+<p>例如：<code>C:\Users\Admin.android\avd</code> （看到盘符就绝对是WINDOWS绝对路径了）</p>
+<p>​           <code>/etc/init/</code> (看到/开头就是liunx的绝对路径了)</p>
+<h4 id="（2）相对路径"><a href="#（2）相对路径" class="headerlink" title="（2）相对路径"></a>（2）相对路径</h4><p>相对路径，顾名思义就是自己相对与目标位置。</p>
+<p>假设 你要引入文件的页面名称为test.htm，它存在叫www的文件夹里（绝对路径<code>D:/wamp/www/test.htm</code>）</p>
+<p>那么引用同时存在www文件夹里的“icon.jpg”文件（绝对路径<code>D:/wamp/www/icon.jpg</code>)</p>
+<p>同一目录下相对路径icon.jpg （<code>./icon.jpg ../</code>）</p>
+<p>如果文件“icon.jpg”存在img文文件夹中（绝对路径<code>D:/wamp/www/img/icon.jpg</code>),那么相对路径<code>./img/icon.jpg</code>。</p>
+<h2 id="三、Web服务器理解"><a href="#三、Web服务器理解" class="headerlink" title="三、Web服务器理解"></a>三、Web服务器理解</h2><p><strong>Web容器</strong></p>
+<p>Web容器是可以向发出请求的浏览器提供文档的程序。</p>
+<p>Web容器是一种被动程序：只有其他计算机发出的请求该容器时，容器才会响应</p>
+<p>Web容器的主要功能是存储，处理和传递网页给客户。客户端和服务器之间的通信使用超文本传输协议（HTTP）进行。交付的页面最常见的是HTML文档，除了文本内容之外，还可能包含图像，样式表和脚本。</p>
+<p>常见Web容器</p>
+<p>IIS(Windows)</p>
+<p>Apache(全平台)</p>
+<p>Nginx(全平台)</p>
 
             </div>
             <hr>
             <div>
               <div class="post-metas mb-3">
                 
-                  <div class="post-meta mr-3">
-                    <i class="iconfont icon-category"></i>
-                    
-                      <a class="hover-with-bg" href="/categories/%E7%8E%AF%E5%A2%83%E9%83%A8%E7%BD%B2/">环境部署</a>
-                    
-                  </div>
-                
-                
-                  <div class="post-meta">
-                    <i class="iconfont icon-tags"></i>
-                    
-                      <a class="hover-with-bg" href="/tags/%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/">开发环境</a>
-                    
-                      <a class="hover-with-bg" href="/tags/CentOS/">CentOS</a>
-                    
-                  </div>
                 
               </div>
               
@@ -283,21 +294,15 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2021/02/07/Hexo%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/">
+                      <a href="/2020/02/15/OverTheWire-Bandit/">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">基于CentOS+Nginx+Hexo搭建个人博客</span>
+                        <span class="hidden-mobile">OverTheWire-Bandit 解题思路（一）</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
                   </article>
                   <article class="post-next col-6">
                     
-                    
-                      <a href="/2020/10/05/Linux/">
-                        <span class="hidden-mobile">Linux基础</span>
-                        <span class="visible-mobile">下一篇</span>
-                        <i class="iconfont icon-arrowright"></i>
-                      </a>
                     
                   </article>
                 </div>
